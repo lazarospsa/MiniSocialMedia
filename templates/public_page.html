@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block page_title %}Public Page{% endblock %}
+{% block body %}
+    {{ super() }}
+    <!--
+        <img src="{{ url_for('static', filename='img/public.jpg') }}" class="img-circle" alt="Cinque Terre" width="304" height="236">
+    
+        You can access this no matter whether you have logged in.
+    -->
+
+    {% if notes %}
+    <h3>All Notes</h3>
+    <table class="table small">
+        <thead>
+            <tr>
+              <th>Note ID</th>
+              <th>Timestamp</th>
+              <th>Note</th>
+            </tr>
+        </thead>
+        {% for note_id, timestamp, note in notes %}
+                <tr>
+                   <td> {{ note_id }} </td>
+                   <td> {{ timestamp }} </td>
+                   <td> {{ note }} </td>
+                </tr>
+                
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% endblock %}
