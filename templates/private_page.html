@@ -58,14 +58,16 @@
                   <th>Image ID</th>
                   <th>Timestamp</th>
                   <th>Image Name</th>
+                  <th>Preview</th>
                   <th>Action</th>
                 </tr>
             </thead>
-            {% for image_id, timestamp, image_name, act in images %}
+            {% for image_id, timestamp, image_name, image_name, act in images %}
                     <tr>
                        <td> {{ image_id }} </td>
                        <td> {{ timestamp }} </td>
                        <td> {{ image_name }} </td>
+                       <td> <img src='{{ image_name }}.jpg' /> </td>
                        <td><a href={{act}}>Delete</a></td>
                     </tr>
                     

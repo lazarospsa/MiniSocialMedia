@@ -32,6 +32,3 @@ For more basic knowledge of Flask, you can refer to [a tutorial on Tutorialspoin
 - Step 1: Make sure you have Python packages *flask*, *hashlib*, and *sqlite3* installed.
 
 - Step 2: Go to this app's directory and run `python3 app.py`
-
-
-A few accounts were set for testing ***test*** (password: 123456).
