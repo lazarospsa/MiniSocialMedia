@@ -1,28 +1,24 @@
-# flask-example
+# MiniSocialMedia
 
-A minimal web app developed with [Flask](http://flask.pocoo.org/) framework. 
+A minimal web app developed with Flask framework & SQLite3. 
 
-The main purpose is to introduce how to implement the essential elements in web application with Flask, including
+The main purpose is to upload texts or photos that is really funny.
 
-- URL Building
+- Easy Register without emails etc.
 
-- Authentication with Sessions
+- Easy to use.
 
-- Template & Template Inheritance
+- Very fast.
 
-- Error Handling
+- Mobile compatible
 
-- Integrating with *Bootstrap*
-
-- Interaction with Database (SQLite)
-
-- Invoking static resources
-
-For more basic knowledge of Flask, you can refer to [a tutorial on Tutorialspoint](https://www.tutorialspoint.com/flask/).
+- Secure
 
 ## Soon Updates
 
-- Make Profile page
+- Make profile page
+- Show public photos
+- Add reactions to posts
 - Make links on navbar
 - Make links on public page for users and posts
 
