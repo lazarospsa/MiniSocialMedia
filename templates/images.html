@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block page_title %}Public Page{% endblock %}
+{% block body %}
+    {{ super() }}
+    <!--
+        <img src="{{ url_for('static', filename='img/public.jpg') }}" class="img-circle" alt="Cinque Terre" width="304" height="236">
+    
+        You can access this no matter whether you have logged in.
+    -->
+
+    {% if images %}
+        <h3>Your Images</h3>
+        <table class="table small">
+            <thead>
+                <tr>
+                  <th>Image ID</th>
+                  <th>Timestamp</th>
+                  <th>Image Name</th>
+                  <th>Preview</th>
+                  <th>Action</th>
+                </tr>
+            </thead>
+            {% for image_id, timestamp, image_name, act in images %}
+                    <tr>
+                       <td> {{ image_id }} </td>
+                       <td> {{ timestamp }} </td>
+                       <td> {{ image_name }} </td>
+                       <!--<td> <img height='20%' widht='20%' src='../image_pool/{{ image_id + "-" + image_name }}' /> </td>-->
+                       <!--<td> <img height='20%' widht='20%' src='{{ url_for("static", filename="img/image_id.jpg") }}' /> </td>-->
+                       <td> <img height='20%' widht='20%' src='../static/img/{{ image_id }}' /> </td>
+                       <td><a href={{act}}>Delete</a></td>
+                    </tr>
+                    
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}

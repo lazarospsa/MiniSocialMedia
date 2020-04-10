@@ -3,7 +3,7 @@ import datetime
 import hashlib
 from flask import Flask, session, url_for, redirect, render_template, request, abort, flash
 from database import list_users, verify, delete_user_from_db, add_user
-from database import read_all_notes_from_db, read_note_from_db, write_note_into_db, delete_note_from_db, match_user_id_with_note_id
+from database import read_all_images_from_db, read_all_notes_from_db, read_note_from_db, write_note_into_db, delete_note_from_db, match_user_id_with_note_id
 from database import image_upload_record, list_images_for_user, match_user_id_with_image_uid, delete_image_from_db
 from werkzeug.utils import secure_filename
 
@@ -46,6 +46,16 @@ def FUN_public():
                     [x[2] for x in notes_list])
     return render_template("public_page.html", notes = all_notes_table)
 
+@app.route("/images/")
+def FUN_images():
+    images_list = read_all_images_from_db()
+    images_table = zip([x[0] for x in images_list],\
+                      [x[1] for x in images_list],\
+                      [x[2] for x in images_list],\
+                      ["/delete_image/" + x[0] for x in images_list])
+
+    return render_template("images.html", images = images_table)
+
 @app.route("/private/")
 def FUN_private():
     if "current_user" in session.keys():
@@ -59,7 +69,6 @@ def FUN_private():
         images_table = zip([x[0] for x in images_list],\
                           [x[1] for x in images_list],\
                           [x[2] for x in images_list],\
-                          [x[3] for x in images_list],\
                           ["/delete_image/" + x[0] for x in images_list])
 
         return render_template("private_page.html", notes = notes_table, images = images_table)
@@ -116,7 +125,8 @@ def FUN_upload_image():
             upload_time = str(datetime.datetime.now())
             image_uid = hashlib.sha1((upload_time + filename).encode()).hexdigest()
             # Save the image into UPLOAD_FOLDER
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], image_uid + "-" + filename))
+            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], image_uid + "-" + filename))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], image_uid))
             # Record this uploading in database
             image_upload_record(image_uid, session['current_user'], filename, upload_time)
             return(redirect(url_for("FUN_private")))

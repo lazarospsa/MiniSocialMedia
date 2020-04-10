@@ -86,6 +86,19 @@ def read_all_notes_from_db():
 
     return result
 
+def read_all_images_from_db():
+    _conn = sqlite3.connect(image_db_file_location)
+    _c = _conn.cursor()
+
+    command = "select * from images order by timestamp desc;" 
+    _c.execute(command)
+    result = _c.fetchall()
+
+    _conn.commit()
+    _conn.close()
+
+    return result
+
 def match_user_id_with_note_id(note_id):
     # Given the note id, confirm if the current user is the owner of the note which is being operated.
     _conn = sqlite3.connect(note_db_file_location)
