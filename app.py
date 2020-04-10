@@ -59,6 +59,7 @@ def FUN_private():
         images_table = zip([x[0] for x in images_list],\
                           [x[1] for x in images_list],\
                           [x[2] for x in images_list],\
+                          [x[3] for x in images_list],\
                           ["/delete_image/" + x[0] for x in images_list])
 
         return render_template("private_page.html", notes = notes_table, images = images_table)
