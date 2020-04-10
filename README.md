@@ -34,12 +34,4 @@ For more basic knowledge of Flask, you can refer to [a tutorial on Tutorialspoin
 - Step 2: Go to this app's directory and run `python3 app.py`
 
 
-A few accounts were set for testing, like ***admin*** (password: admin), ***test*** (password: 123456), etc. You can also delete or add accounts after you log in as ***admin***.
-
-
-
-## References
-
-- http://flask.pocoo.org/
-
-- https://www.tutorialspoint.com/flask/
+A few accounts were set for testing ***test*** (password: 123456).
