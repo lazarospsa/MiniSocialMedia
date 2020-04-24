@@ -21,6 +21,7 @@ The main purpose is to upload texts or photos that is really funny.
 - Make profile page
 - Show public photos
 - Add reactions to posts
+- Make hashtags and page that load all posts from the clicked hashtag
 - Make links on navbar
 - Make links on public page for users and posts
 
